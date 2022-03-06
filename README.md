@@ -1,6 +1,8 @@
 # fortran_sovle_sudoku
 Solve sudoku game, written in Fortran
 
+Fortran书写的数独求解器
+
 https://www.thelearningpoint.net/computer-science/c-program-sudoku-solver
 
 ```
