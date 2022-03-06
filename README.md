@@ -1,4 +1,4 @@
-# fortran_sovle_sudoku
+# fortran sudoku  solver
 Solve sudoku game, written in Fortran
 
 Fortran书写的数独求解器
