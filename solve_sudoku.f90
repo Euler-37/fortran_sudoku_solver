@@ -9,11 +9,18 @@ contains
         do i=1,9
             read(10,*)sudoku(i,:)
         end do
-        do i=1,9
-            write(*,"(9I2)")sudoku(i,:)
-        end do
         close(10)
+        call write_sudoku()
     end subroutine read_sudoku
+
+    subroutine write_sudoku()
+        integer::i
+        write(*,"(A)")"+------+------+------+"
+        do i=1,9
+            write(*,"('|',3(3I2,'|'))")sudoku(i,:)
+            if(mod(i,3)==0)write(*,"(A)")"+------+------+------+"
+        end do
+    end subroutine write_sudoku
 
     subroutine search_next(row,col)
         integer,intent(in)::col,row
@@ -33,11 +40,7 @@ contains
         logical::checkcol
         integer::r,c
         if(row>9)then
-            write(*,*)repeat("-", 17)
-            do num=1,9
-                write(*,"(9I2)")sudoku(num,:)
-            end do
-            write(*,*)repeat("-", 17)
+            call write_sudoku()
             return
         end if
         if(sudoku(row,col)/=0)then
